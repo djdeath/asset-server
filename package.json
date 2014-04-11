@@ -1,0 +1,50 @@
+{
+  "name": "asset-server",
+  "description": "Asset server",
+  "keywords": ["noflo", "server"],
+  "author": "Lionel Landwerlin <lionel.g.landwerlin@linux.intel.com>",
+  "version": "0.0.1",
+  "licenses": [{
+    "type": "MIT",
+    "url": "https://github.com/djdeath/asset-server/raw/master/LICENSE"
+  }],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/djdeath/asset-server.git"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "coffee-script": "1.4.x",
+    "noflo": "0.5.x",
+    "noflo-runtime-websocket": "0.2.x",
+    "noflo-adapters": "0.1.*",
+    "noflo-core": "git://github.com/djdeath/noflo-core.git#missing-disconnect",
+    "noflo-express": "git://github.com/djdeath/noflo-express.git#master",
+    "noflo-filesystem": "git://github.com/djdeath/noflo-filesystem.git#streams",
+    "noflo-flow": "0.3.*",
+    "noflo-groups": "0.1.*",
+    "noflo-markdown": "0.0.*",
+    "noflo-math": "git://github.com/djdeath/noflo-math.git#iot",
+    "noflo-objects": "0.1.*",
+    "noflo-packets": "0.1.*",
+    "noflo-routers": "0.2.*",
+    "noflo-strings": "git://github.com/djdeath/noflo-strings.git#parse-number",
+    "noflo-webserver": "0.0.*",
+    "noflo-websocket": "0.1.*",
+    "noflo-xml": "0.0.*"
+  },
+  "devDependencies": {
+    "nodeunit": ">=0.6.0"
+  },
+   "noflo": {
+    "components": {
+      "BuildFilePath": "components/BuildFilePath.coffee"
+    }
+  },
+ "scripts": {
+    "pretest": "./node_modules/.bin/coffeelint -r components",
+    "test": "./node_modules/.bin/nodeunit test"
+  }
+}
