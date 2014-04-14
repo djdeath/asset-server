@@ -44,7 +44,8 @@
    "noflo": {
     "components": {
       "BuildFilePath": "components/BuildFilePath.coffee",
-      "ParseForm": "components/ParseForm.coffee"
+      "ParseForm": "components/ParseForm.coffee",
+      "UuidToPath": "components/UuidToPath.coffee"
     }
   },
  "scripts": {
