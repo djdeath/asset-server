@@ -33,14 +33,17 @@
     "noflo-strings": "git://github.com/djdeath/noflo-strings.git#parse-number",
     "noflo-webserver": "0.0.*",
     "noflo-websocket": "0.1.*",
-    "noflo-xml": "0.0.*"
+    "noflo-xml": "0.0.*",
+
+    "formidable": "1.0.14"
   },
   "devDependencies": {
     "nodeunit": ">=0.6.0"
   },
    "noflo": {
     "components": {
-      "BuildFilePath": "components/BuildFilePath.coffee"
+      "BuildFilePath": "components/BuildFilePath.coffee",
+      "ParseForm": "components/ParseForm.coffee"
     }
   },
  "scripts": {
