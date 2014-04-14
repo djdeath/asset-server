@@ -30,6 +30,7 @@
     "noflo-objects": "0.1.*",
     "noflo-packets": "0.1.*",
     "noflo-routers": "0.2.*",
+    "noflo-swiss": "0.0.*",
     "noflo-strings": "git://github.com/djdeath/noflo-strings.git#parse-number",
     "noflo-webserver": "0.0.*",
     "noflo-websocket": "0.1.*",
