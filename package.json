@@ -27,6 +27,7 @@
     "noflo-groups": "0.1.*",
     "noflo-markdown": "0.0.*",
     "noflo-math": "git://github.com/djdeath/noflo-math.git#iot",
+    "noflo-mongoose": "git://github.com/djdeath/noflo-mongoose.git#master",
     "noflo-objects": "0.1.*",
     "noflo-packets": "0.1.*",
     "noflo-routers": "0.2.*",
@@ -36,7 +37,8 @@
     "noflo-websocket": "0.1.*",
     "noflo-xml": "0.0.*",
 
-    "formidable": "1.0.14"
+    "formidable": "1.0.14",
+    "mongoose": "~3.8.8"
   },
   "devDependencies": {
     "nodeunit": ">=0.6.0"
@@ -44,7 +46,9 @@
    "noflo": {
     "components": {
       "BuildFilePath": "components/BuildFilePath.coffee",
+      "FileSchema": "components/FileSchema.coffee",
       "ParseForm": "components/ParseForm.coffee",
+      "TagSchema": "components/TagSchema.coffee",
       "UuidToPath": "components/UuidToPath.coffee"
     }
   },
