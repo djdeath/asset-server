@@ -1,20 +1,19 @@
 noflo = require 'noflo'
-mongoose = require 'mongoose'
 
 class FileSchema extends noflo.Component
   description: ''
   constructor: ->
     @inPorts =
-      in: new noflo.Port 'bang'
+      in: new noflo.Port 'object'
     @outPorts =
       out: new noflo.Port 'object'
 
     @inPorts.in.on 'begingroup', (group) =>
       return unless @outPorts.out.isAttached()
       @outPorts.out.beginGroup group
-    @inPorts.in.on 'data', () =>
+    @inPorts.in.on 'data', (connection) =>
       return unless @outPorts.out.isAttached()
-      @outPorts.out.send @getSchema()
+      @outPorts.out.send @getSchema(connection)
     @inPorts.in.on 'endgroup', () =>
       return unless @outPorts.out.isAttached()
       @outPorts.out.endGroup()
@@ -22,11 +21,10 @@ class FileSchema extends noflo.Component
       return unless @outPorts.out.isConnected()
       @outPorts.out.disconnect()
 
-  getSchema: () ->
-    return @schema if @schema?
-    @schema = new mongoose.Schema
-      id: String
+  getSchema: (connection) ->
+    return connection.Schema
       addedDate: Date
       itemCount: Number
+      name: String
 
 exports.getComponent = -> new FileSchema
