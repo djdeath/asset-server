@@ -49,6 +49,7 @@
       "File": "components/File.coffee",
       "FileSchema": "components/FileSchema.coffee",
       "ParseForm": "components/ParseForm.coffee",
+      "OrderPackets": "components/OrderPackets.coffee",
       "TagSchema": "components/TagSchema.coffee",
       "UuidToPath": "components/UuidToPath.coffee"
     }
