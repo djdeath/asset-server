@@ -46,6 +46,7 @@
    "noflo": {
     "components": {
       "BuildFilePath": "components/BuildFilePath.coffee",
+      "File": "components/File.coffee",
       "FileSchema": "components/FileSchema.coffee",
       "ParseForm": "components/ParseForm.coffee",
       "TagSchema": "components/TagSchema.coffee",
