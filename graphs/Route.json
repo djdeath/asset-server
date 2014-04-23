@@ -1,0 +1,203 @@
+{
+    "properties": {
+        "name": "Route",
+        "id": "Route",
+        "project": "Asset-Server",
+        "environment": {
+            "type": "noflo-nodejs"
+        }
+    },
+    "inports": {
+        "in1": {
+            "process": "asset-server/OrderPackets_uq32q",
+            "port": "in",
+            "metadata": {
+                "x": 612,
+                "y": 2016
+            }
+        },
+        "in2": {
+            "process": "asset-server/OrderPackets_wj4vr",
+            "port": "in",
+            "metadata": {
+                "x": 612,
+                "y": 2124
+            }
+        },
+        "data": {
+            "process": "groups/SendByGroup_w6yct",
+            "port": "data",
+            "metadata": {
+                "x": 648,
+                "y": 1764
+            }
+        }
+    },
+    "outports": {
+        "out1": {
+            "process": "flow/Gate_1owrw",
+            "port": "out",
+            "metadata": {
+                "x": 1296,
+                "y": 1908
+            }
+        },
+        "out2": {
+            "process": "flow/Gate_bvsnd",
+            "port": "out",
+            "metadata": {
+                "x": 1296,
+                "y": 2016
+            }
+        }
+    },
+    "groups": [],
+    "processes": {
+        "asset-server/OrderPackets_wj4vr": {
+            "component": "asset-server/OrderPackets",
+            "metadata": {
+                "label": "asset-server/OrderPackets",
+                "x": 792,
+                "y": 2124
+            }
+        },
+        "asset-server/OrderPackets_uq32q": {
+            "component": "asset-server/OrderPackets",
+            "metadata": {
+                "label": "asset-server/OrderPackets",
+                "x": 792,
+                "y": 2016
+            }
+        },
+        "flow/Gate_bvsnd": {
+            "component": "flow/Gate",
+            "metadata": {
+                "label": "Gate",
+                "x": 1116,
+                "y": 2016
+            }
+        },
+        "flow/Gate_1owrw": {
+            "component": "flow/Gate",
+            "metadata": {
+                "label": "Gate",
+                "x": 1116,
+                "y": 1908
+            }
+        },
+        "groups/SendByGroup_w6yct": {
+            "component": "groups/SendByGroup",
+            "metadata": {
+                "label": "groups/SendByGroup",
+                "x": 900,
+                "y": 1764
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "asset-server/OrderPackets_uq32q",
+                "port": "out1"
+            },
+            "tgt": {
+                "process": "flow/Gate_1owrw",
+                "port": "open"
+            },
+            "metadata": {
+                "route": 7
+            }
+        },
+        {
+            "src": {
+                "process": "asset-server/OrderPackets_uq32q",
+                "port": "out1"
+            },
+            "tgt": {
+                "process": "flow/Gate_bvsnd",
+                "port": "close"
+            },
+            "metadata": {
+                "route": 7
+            }
+        },
+        {
+            "src": {
+                "process": "asset-server/OrderPackets_wj4vr",
+                "port": "out1"
+            },
+            "tgt": {
+                "process": "flow/Gate_bvsnd",
+                "port": "open"
+            },
+            "metadata": {
+                "route": 7
+            }
+        },
+        {
+            "src": {
+                "process": "asset-server/OrderPackets_wj4vr",
+                "port": "out1"
+            },
+            "tgt": {
+                "process": "flow/Gate_1owrw",
+                "port": "close"
+            },
+            "metadata": {
+                "route": 7
+            }
+        },
+        {
+            "src": {
+                "process": "asset-server/OrderPackets_uq32q",
+                "port": "out2"
+            },
+            "tgt": {
+                "process": "groups/SendByGroup_w6yct",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 3
+            }
+        },
+        {
+            "src": {
+                "process": "asset-server/OrderPackets_wj4vr",
+                "port": "out2"
+            },
+            "tgt": {
+                "process": "groups/SendByGroup_w6yct",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 3
+            }
+        },
+        {
+            "src": {
+                "process": "groups/SendByGroup_w6yct",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "flow/Gate_1owrw",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 3
+            }
+        },
+        {
+            "src": {
+                "process": "groups/SendByGroup_w6yct",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "flow/Gate_bvsnd",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 3
+            }
+        }
+    ]
+}
