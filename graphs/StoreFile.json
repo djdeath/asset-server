@@ -1,0 +1,658 @@
+{
+    "properties": {
+        "name": "StoreFile",
+        "id": "StoreFile",
+        "project": "Asset-Server",
+        "environment": {
+            "type": "noflo-nodejs"
+        }
+    },
+    "inports": {
+        "filemodel": {
+            "process": "mongoose/CreateDocument_5q3qj",
+            "port": "model",
+            "metadata": {
+                "x": 2124,
+                "y": 1152
+            }
+        },
+        "file": {
+            "process": "core/Repeat_lbs66",
+            "port": "in",
+            "metadata": {
+                "x": 1080,
+                "y": 1836
+            }
+        }
+    },
+    "outports": {
+        "usererror": {
+            "process": "core/Repeat_7g3ui",
+            "port": "out",
+            "metadata": {
+                "x": 2952,
+                "y": 2052
+            }
+        },
+        "servererror": {
+            "process": "filesystem/Unlink_3eflr",
+            "port": "error",
+            "metadata": {
+                "x": 2952,
+                "y": 1728
+            }
+        },
+        "done": {
+            "process": "mongoose/SaveDocument_t3usw",
+            "port": "out",
+            "metadata": {
+                "x": 2952,
+                "y": 1368
+            }
+        }
+    },
+    "groups": [],
+    "processes": {
+        "objects/CreateDate_zrysj": {
+            "component": "objects/CreateDate",
+            "metadata": {
+                "label": "addedDate",
+                "x": 1692,
+                "y": 1548
+            }
+        },
+        "NewFilePath": {
+            "component": "Asset-Server/NewFilePath",
+            "metadata": {
+                "label": "FinalPath",
+                "x": 1692,
+                "y": 1656
+            }
+        },
+        "objects/ExtractProperty_q8yfl": {
+            "component": "objects/ExtractProperty",
+            "metadata": {
+                "label": "Name",
+                "x": 1692,
+                "y": 1764
+            }
+        },
+        "objects/ExtractProperty_8o573": {
+            "component": "objects/ExtractProperty",
+            "metadata": {
+                "label": "TempPath",
+                "x": 1692,
+                "y": 2232
+            }
+        },
+        "filesystem/DirName_ncjyv": {
+            "component": "filesystem/DirName",
+            "metadata": {
+                "label": "FinalDir",
+                "x": 2052,
+                "y": 1836
+            }
+        },
+        "filesystem/MakeDirRecursive_2ru2n": {
+            "component": "filesystem/MakeDirRecursive",
+            "metadata": {
+                "label": "MakeDir",
+                "x": 2196,
+                "y": 1836
+            }
+        },
+        "core/Kick_vnajf": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "core/Kick",
+                "x": 2340,
+                "y": 1764
+            }
+        },
+        "filesystem/CopyFileSequential_c8wlr": {
+            "component": "filesystem/CopyFileSequential",
+            "metadata": {
+                "label": "CopyFile",
+                "x": 2412,
+                "y": 1620
+            }
+        },
+        "core/Repeat_7g3ui": {
+            "component": "core/Repeat",
+            "metadata": {
+                "label": "core/Repeat",
+                "x": 2556,
+                "y": 2160
+            }
+        },
+        "core/Kick_qrris": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "core/Kick",
+                "x": 2556,
+                "y": 1728
+            }
+        },
+        "filesystem/Unlink_3eflr": {
+            "component": "filesystem/Unlink",
+            "metadata": {
+                "label": "filesystem/Unlink",
+                "x": 2700,
+                "y": 1728
+            }
+        },
+        "core/Repeat_lbs66": {
+            "component": "core/Repeat",
+            "metadata": {
+                "label": "core/Repeat",
+                "x": 1224,
+                "y": 1836
+            }
+        },
+        "mongoose/CreateDocument_5q3qj": {
+            "component": "mongoose/CreateDocument",
+            "metadata": {
+                "label": "mongoose/CreateDocument",
+                "x": 2520,
+                "y": 1368
+            }
+        },
+        "objects/CreateObject_pa7tz": {
+            "component": "objects/CreateObject",
+            "metadata": {
+                "label": "CreateFileObject",
+                "x": 1692,
+                "y": 1440
+            }
+        },
+        "asset-server/OrderPackets_2ifzv": {
+            "component": "asset-server/OrderPackets",
+            "metadata": {
+                "label": "asset-server/OrderPackets",
+                "x": 1404,
+                "y": 1656
+            }
+        },
+        "asset-server/File_b0hxv": {
+            "component": "asset-server/File",
+            "metadata": {
+                "label": "asset-server/File",
+                "x": 2124,
+                "y": 1368
+            }
+        },
+        "strings/ParseJson_lmcnq": {
+            "component": "strings/ParseJson",
+            "metadata": {
+                "label": "EmptyTags",
+                "x": 1800,
+                "y": 1872
+            }
+        },
+        "core/Kick_ntii": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "Kick\n",
+                "x": 1692,
+                "y": 1872
+            }
+        },
+        "objects/ExtractProperty_rxx8v": {
+            "component": "objects/ExtractProperty",
+            "metadata": {
+                "label": "Mime",
+                "x": 1692,
+                "y": 1980
+            }
+        },
+        "mongoose/SaveDocument_t3usw": {
+            "component": "mongoose/SaveDocument",
+            "metadata": {
+                "label": "mongoose/SaveDocument",
+                "x": 2772,
+                "y": 1368
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "objects/ExtractProperty_8o573",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Kick_qrris",
+                "port": "data"
+            },
+            "metadata": {
+                "route": 7
+            }
+        },
+        {
+            "src": {
+                "process": "filesystem/DirName_ncjyv",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "filesystem/MakeDirRecursive_2ru2n",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "filesystem/MakeDirRecursive_2ru2n",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Kick_vnajf",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "core/Kick_qrris",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "filesystem/Unlink_3eflr",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 7
+            }
+        },
+        {
+            "src": {
+                "process": "objects/ExtractProperty_8o573",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "filesystem/CopyFileSequential_c8wlr",
+                "port": "source"
+            },
+            "metadata": {
+                "route": 7
+            }
+        },
+        {
+            "src": {
+                "process": "core/Kick_vnajf",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "filesystem/CopyFileSequential_c8wlr",
+                "port": "destination"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "filesystem/CopyFileSequential_c8wlr",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Kick_qrris",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 7
+            }
+        },
+        {
+            "src": {
+                "process": "NewFilePath",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "filesystem/DirName_ncjyv",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "NewFilePath",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Kick_vnajf",
+                "port": "data"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "filesystem/MakeDirRecursive_2ru2n",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Repeat_7g3ui",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "filesystem/CopyFileSequential_c8wlr",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Repeat_7g3ui",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "core/Repeat_7g3ui",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Kick_qrris",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "core/Repeat_lbs66",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "objects/ExtractProperty_q8yfl",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "core/Repeat_lbs66",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "objects/ExtractProperty_8o573",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "asset-server/File_b0hxv",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "mongoose/CreateDocument_5q3qj",
+                "port": "data"
+            },
+            "metadata": {
+                "route": 9
+            }
+        },
+        {
+            "src": {
+                "process": "asset-server/OrderPackets_2ifzv",
+                "port": "out1"
+            },
+            "tgt": {
+                "process": "objects/CreateObject_pa7tz",
+                "port": "start"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "objects/CreateObject_pa7tz",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "asset-server/File_b0hxv",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 3
+            }
+        },
+        {
+            "src": {
+                "process": "core/Repeat_lbs66",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "asset-server/OrderPackets_2ifzv",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "asset-server/OrderPackets_2ifzv",
+                "port": "out2"
+            },
+            "tgt": {
+                "process": "objects/CreateDate_zrysj",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "objects/CreateDate_zrysj",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "asset-server/File_b0hxv",
+                "port": "addeddate"
+            },
+            "metadata": {
+                "route": 3
+            }
+        },
+        {
+            "src": {
+                "process": "asset-server/OrderPackets_2ifzv",
+                "port": "out2"
+            },
+            "tgt": {
+                "process": "NewFilePath",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "NewFilePath",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "asset-server/File_b0hxv",
+                "port": "path"
+            },
+            "metadata": {
+                "route": 3
+            }
+        },
+        {
+            "src": {
+                "process": "objects/ExtractProperty_q8yfl",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "asset-server/File_b0hxv",
+                "port": "filename"
+            },
+            "metadata": {
+                "route": 3
+            }
+        },
+        {
+            "src": {
+                "process": "objects/CreateDate_zrysj",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "asset-server/File_b0hxv",
+                "port": "updateddate"
+            },
+            "metadata": {
+                "route": 3
+            }
+        },
+        {
+            "src": {
+                "process": "core/Kick_ntii",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "strings/ParseJson_lmcnq",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "asset-server/OrderPackets_2ifzv",
+                "port": "out2"
+            },
+            "tgt": {
+                "process": "core/Kick_ntii",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "strings/ParseJson_lmcnq",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "asset-server/File_b0hxv",
+                "port": "tags"
+            },
+            "metadata": {
+                "route": 3
+            }
+        },
+        {
+            "src": {
+                "process": "asset-server/OrderPackets_2ifzv",
+                "port": "out2"
+            },
+            "tgt": {
+                "process": "objects/ExtractProperty_rxx8v",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "objects/ExtractProperty_rxx8v",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "asset-server/File_b0hxv",
+                "port": "mime"
+            },
+            "metadata": {
+                "route": 3
+            }
+        },
+        {
+            "src": {
+                "process": "filesystem/Unlink_3eflr",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "asset-server/File_b0hxv",
+                "port": "done"
+            },
+            "metadata": {
+                "route": 7
+            }
+        },
+        {
+            "src": {
+                "process": "mongoose/CreateDocument_5q3qj",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "mongoose/SaveDocument_t3usw",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 9
+            }
+        },
+        {
+            "src": {
+                "process": "mongoose/SaveDocument_t3usw",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Repeat_7g3ui",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "data": "name",
+            "tgt": {
+                "process": "objects/ExtractProperty_q8yfl",
+                "port": "key"
+            }
+        },
+        {
+            "data": "path",
+            "tgt": {
+                "process": "objects/ExtractProperty_8o573",
+                "port": "key"
+            }
+        },
+        {
+            "data": "files/",
+            "tgt": {
+                "process": "NewFilePath",
+                "port": "path"
+            }
+        },
+        {
+            "data": "[]",
+            "tgt": {
+                "process": "core/Kick_ntii",
+                "port": "data"
+            }
+        },
+        {
+            "data": "mime",
+            "tgt": {
+                "process": "objects/ExtractProperty_rxx8v",
+                "port": "key"
+            }
+        }
+    ]
+}
