@@ -1,0 +1,1272 @@
+{
+    "properties": {
+        "name": "Asset Server",
+        "id": "m2scv",
+        "project": "Asset-Server",
+        "environment": {
+            "type": "noflo-nodejs"
+        }
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [
+        {
+            "name": "Plop",
+            "nodes": [
+                "core/Kick_i5kfo",
+                "express/Request_3octh",
+                "webserver/SendResponse_c72ui",
+                "webserver/WriteResponse_tw4a4"
+            ],
+            "metadata": {
+                "description": ""
+            }
+        },
+        {
+            "name": "Restart",
+            "nodes": [
+                "core/Kick_4wl9h",
+                "core/Kick_mn47f",
+                "core/Kick_zjq4f",
+                "core/RunTimeout_fue8b"
+            ],
+            "metadata": {
+                "description": ""
+            }
+        },
+        {
+            "name": "Files download",
+            "nodes": [
+                "asset-server/BuildFilePath_gt5e",
+                "core/Kick_m97o6",
+                "express/EndResponse_q9h0w",
+                "express/Next_zbftz",
+                "express/RequestParam_95i2y",
+                "express/Request_y0zrz",
+                "express/SendFile_ntz41"
+            ],
+            "metadata": {
+                "description": ""
+            }
+        },
+        {
+            "name": "Upload",
+            "nodes": [
+                "Asset-Server/Route_wh3nb",
+                "asset-server/ParseForm_3pit7"
+            ],
+            "metadata": {
+                "description": ""
+            }
+        }
+    ],
+    "processes": {
+        "express/Server_npvfz": {
+            "component": "express/Server",
+            "metadata": {
+                "label": "Server",
+                "x": 432,
+                "y": 468
+            }
+        },
+        "express/Request_3octh": {
+            "component": "express/Request",
+            "metadata": {
+                "label": "/plop.html",
+                "x": 648,
+                "y": 108
+            }
+        },
+        "webserver/WriteResponse_tw4a4": {
+            "component": "webserver/WriteResponse",
+            "metadata": {
+                "label": "Response",
+                "x": 936,
+                "y": 72
+            }
+        },
+        "webserver/SendResponse_c72ui": {
+            "component": "webserver/SendResponse",
+            "metadata": {
+                "label": "Send",
+                "x": 1080,
+                "y": 72
+            }
+        },
+        "core/Kick_i5kfo": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "KickResponse",
+                "x": 792,
+                "y": 0
+            }
+        },
+        "express/Request_y0zrz": {
+            "component": "express/Request",
+            "metadata": {
+                "label": "/files/*",
+                "x": 792,
+                "y": 756
+            }
+        },
+        "core/Repeat_ffpti": {
+            "component": "core/Repeat",
+            "metadata": {
+                "label": "Server Port",
+                "x": -36,
+                "y": 180
+            }
+        },
+        "core/Kick_4wl9h": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "core/Kick",
+                "x": -72,
+                "y": 684
+            }
+        },
+        "core/Kick_zjq4f": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "core/Kick",
+                "x": -216,
+                "y": 540
+            }
+        },
+        "core/RunTimeout_fue8b": {
+            "component": "core/RunTimeout",
+            "metadata": {
+                "label": "core/RunTimeout",
+                "x": 72,
+                "y": 684
+            }
+        },
+        "core/Kick_mn47f": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "core/Kick",
+                "x": 180,
+                "y": 612
+            }
+        },
+        "express/Request_y95tx": {
+            "component": "express/Request",
+            "metadata": {
+                "label": "/upload",
+                "x": 648,
+                "y": 1620
+            }
+        },
+        "core/Output_oqyar": {
+            "component": "core/Output",
+            "metadata": {
+                "label": "core/Output",
+                "x": 1512,
+                "y": 432
+            }
+        },
+        "express/RequestParam_95i2y": {
+            "component": "express/RequestParam",
+            "metadata": {
+                "label": "GetFilename",
+                "x": 936,
+                "y": 828
+            }
+        },
+        "express/SendFile_ntz41": {
+            "component": "express/SendFile",
+            "metadata": {
+                "label": "SendFile",
+                "x": 1188,
+                "y": 792
+            }
+        },
+        "asset-server/BuildFilePath_gt5e": {
+            "component": "asset-server/BuildFilePath",
+            "metadata": {
+                "label": "BuildFilePath",
+                "x": 1080,
+                "y": 828
+            }
+        },
+        "core/Kick_m97o6": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "Error",
+                "x": 1332,
+                "y": 720
+            }
+        },
+        "express/Next_zbftz": {
+            "component": "express/Next",
+            "metadata": {
+                "label": "Error response",
+                "x": 1440,
+                "y": 720
+            }
+        },
+        "express/ReceiveFiles_rezcm": {
+            "component": "express/ReceiveFiles",
+            "metadata": {
+                "label": "EachFile",
+                "x": 1440,
+                "y": 1872
+            }
+        },
+        "asset-server/ParseForm_3pit7": {
+            "component": "asset-server/ParseForm",
+            "metadata": {
+                "label": "ParseForm",
+                "x": 828,
+                "y": 1908
+            }
+        },
+        "express/EndResponse_q9h0w": {
+            "component": "express/EndResponse",
+            "metadata": {
+                "label": "express/EndResponse",
+                "x": 1404,
+                "y": 864
+            }
+        },
+        "core/Drop_rult0": {
+            "component": "core/Drop",
+            "metadata": {
+                "label": "core/Drop",
+                "x": 36,
+                "y": -648
+            }
+        },
+        "mongoose/FindDocument_fn0l8": {
+            "component": "mongoose/FindDocument",
+            "metadata": {
+                "label": "Find",
+                "x": 612,
+                "y": -720
+            }
+        },
+        "strings/ParseJson_25d4z": {
+            "component": "strings/ParseJson",
+            "metadata": {
+                "label": "strings/ParseJson",
+                "x": 108,
+                "y": -540
+            }
+        },
+        "core/Drop_p5mw3": {
+            "component": "core/Drop",
+            "metadata": {
+                "label": "core/Drop",
+                "x": 900,
+                "y": -720
+            }
+        },
+        "core/Kick_m1tqq": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "core/Kick",
+                "x": 252,
+                "y": -540
+            }
+        },
+        "mongoose/CreateModel_cd4e6": {
+            "component": "mongoose/CreateModel",
+            "metadata": {
+                "label": "FileModel",
+                "x": 432,
+                "y": -792
+            }
+        },
+        "mongoose/CreateDocument_jagf2": {
+            "component": "mongoose/CreateDocument",
+            "metadata": {
+                "label": "CreateFile",
+                "x": 612,
+                "y": -504
+            }
+        },
+        "strings/ParseJson_2oa7w": {
+            "component": "strings/ParseJson",
+            "metadata": {
+                "label": "strings/ParseJson",
+                "x": 108,
+                "y": -396
+            }
+        },
+        "core/Kick_u26yg": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "core/Kick",
+                "x": 252,
+                "y": -396
+            }
+        },
+        "mongoose/SaveDocument_vyqw9": {
+            "component": "mongoose/SaveDocument",
+            "metadata": {
+                "label": "SaveFile",
+                "x": 756,
+                "y": -504
+            }
+        },
+        "mongoose/DocumentToJSON_jqd8a": {
+            "component": "mongoose/DocumentToJSON",
+            "metadata": {
+                "label": "DocumentToJSON",
+                "x": 720,
+                "y": -828
+            }
+        },
+        "core/Output_9uop6": {
+            "component": "core/Output",
+            "metadata": {
+                "label": "core/Output",
+                "x": 612,
+                "y": -900
+            }
+        },
+        "mongoose/FindOneDocument_mctld": {
+            "component": "mongoose/FindOneDocument",
+            "metadata": {
+                "label": "FindOneDocument",
+                "x": 648,
+                "y": -612
+            }
+        },
+        "asset-server/FileSchema_rj0vb": {
+            "component": "asset-server/FileSchema",
+            "metadata": {
+                "label": "FileSchema",
+                "x": 180,
+                "y": -720
+            }
+        },
+        "mongoose/Connection_khm8i": {
+            "component": "mongoose/Connection",
+            "metadata": {
+                "label": "mongoose/Connection",
+                "x": -108,
+                "y": -756
+            }
+        },
+        "express/SendError_l8ecq": {
+            "component": "express/SendError",
+            "metadata": {
+                "label": "SendError",
+                "x": 1152,
+                "y": 2052
+            }
+        },
+        "Asset-Server/Route_wh3nb": {
+            "component": "Asset-Server/Route",
+            "metadata": {
+                "label": "Asset-Server/Route",
+                "x": 1008,
+                "y": 1836
+            }
+        },
+        "flow/Gate_2oda4": {
+            "component": "flow/Gate",
+            "metadata": {
+                "label": "FileErrorGate",
+                "x": 1728,
+                "y": 1656
+            }
+        },
+        "asset-server/OrderPackets_fplsh": {
+            "component": "asset-server/OrderPackets",
+            "metadata": {
+                "label": "OrderPackets",
+                "x": 1260,
+                "y": 1836
+            }
+        },
+        "StoreFile": {
+            "component": "Asset-Server/StoreFile",
+            "metadata": {
+                "label": "StoreFile",
+                "x": 1728,
+                "y": 1944
+            }
+        },
+        "cache/Cache_k390a": {
+            "component": "cache/Cache",
+            "metadata": {
+                "label": "cache/Cache",
+                "x": 1908,
+                "y": 1800
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "express/Request_3octh",
+                "port": "request"
+            },
+            "tgt": {
+                "process": "webserver/WriteResponse_tw4a4",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "webserver/WriteResponse_tw4a4",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "webserver/SendResponse_c72ui",
+                "port": "in"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "express/Request_3octh",
+                "port": "request"
+            },
+            "tgt": {
+                "process": "core/Kick_i5kfo",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "core/Kick_i5kfo",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "webserver/WriteResponse_tw4a4",
+                "port": "string"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "core/Repeat_ffpti",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Kick_4wl9h",
+                "port": "data"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Kick_zjq4f",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Kick_4wl9h",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Kick_4wl9h",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "express/Server_npvfz",
+                "port": "close"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "core/Kick_4wl9h",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/RunTimeout_fue8b",
+                "port": "start"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "core/RunTimeout_fue8b",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Kick_mn47f",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Repeat_ffpti",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Kick_mn47f",
+                "port": "data"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "core/Repeat_ffpti",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "express/Server_npvfz",
+                "port": "listen"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "core/Kick_mn47f",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "express/Server_npvfz",
+                "port": "listen"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "express/Server_npvfz",
+                "port": "app"
+            },
+            "tgt": {
+                "process": "express/Request_3octh",
+                "port": "app"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "express/Server_npvfz",
+                "port": "app"
+            },
+            "tgt": {
+                "process": "express/Request_y0zrz",
+                "port": "app"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "express/Server_npvfz",
+                "port": "app"
+            },
+            "tgt": {
+                "process": "express/Request_y95tx",
+                "port": "app"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "express/Request_y95tx",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Output_oqyar",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "express/Request_y0zrz",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Output_oqyar",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "express/Request_3octh",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Output_oqyar",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "express/Server_npvfz",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Output_oqyar",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "express/Request_y0zrz",
+                "port": "request"
+            },
+            "tgt": {
+                "process": "express/RequestParam_95i2y",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "express/Request_y0zrz",
+                "port": "request"
+            },
+            "tgt": {
+                "process": "express/SendFile_ntz41",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "express/SendFile_ntz41",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Output_oqyar",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "express/RequestParam_95i2y",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "asset-server/BuildFilePath_gt5e",
+                "port": "filename"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "asset-server/BuildFilePath_gt5e",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "express/SendFile_ntz41",
+                "port": "path"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "express/Request_y0zrz",
+                "port": "request"
+            },
+            "tgt": {
+                "process": "core/Kick_m97o6",
+                "port": "data"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "express/SendFile_ntz41",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Kick_m97o6",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "core/Kick_m97o6",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "express/Next_zbftz",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "express/Request_y95tx",
+                "port": "request"
+            },
+            "tgt": {
+                "process": "asset-server/ParseForm_3pit7",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "express/SendFile_ntz41",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "express/EndResponse_q9h0w",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "strings/ParseJson_25d4z",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Kick_m1tqq",
+                "port": "data"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "core/Kick_m1tqq",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "mongoose/FindDocument_fn0l8",
+                "port": "selector"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "mongoose/FindDocument_fn0l8",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Drop_p5mw3",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "mongoose/CreateModel_cd4e6",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "mongoose/FindDocument_fn0l8",
+                "port": "model"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "strings/ParseJson_2oa7w",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Kick_u26yg",
+                "port": "data"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "mongoose/CreateModel_cd4e6",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "mongoose/CreateDocument_jagf2",
+                "port": "model"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "core/Kick_u26yg",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "mongoose/CreateDocument_jagf2",
+                "port": "data"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "mongoose/CreateDocument_jagf2",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "mongoose/SaveDocument_vyqw9",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "mongoose/SaveDocument_vyqw9",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Drop_p5mw3",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "mongoose/SaveDocument_vyqw9",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Drop_p5mw3",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "mongoose/DocumentToJSON_jqd8a",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Drop_p5mw3",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "mongoose/FindDocument_fn0l8",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Output_9uop6",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "mongoose/CreateModel_cd4e6",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "mongoose/FindOneDocument_mctld",
+                "port": "model"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "core/Kick_m1tqq",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "mongoose/FindOneDocument_mctld",
+                "port": "selector"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "mongoose/FindOneDocument_mctld",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "mongoose/DocumentToJSON_jqd8a",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "mongoose/FindOneDocument_mctld",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Drop_p5mw3",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "asset-server/FileSchema_rj0vb",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "mongoose/CreateModel_cd4e6",
+                "port": "schema"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "mongoose/Connection_khm8i",
+                "port": "connected"
+            },
+            "tgt": {
+                "process": "asset-server/FileSchema_rj0vb",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "mongoose/Connection_khm8i",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Drop_rult0",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "mongoose/Connection_khm8i",
+                "port": "disconnected"
+            },
+            "tgt": {
+                "process": "core/Drop_rult0",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "mongoose/Connection_khm8i",
+                "port": "connected"
+            },
+            "tgt": {
+                "process": "mongoose/CreateModel_cd4e6",
+                "port": "connection"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "asset-server/ParseForm_3pit7",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "Asset-Server/Route_wh3nb",
+                "port": "in1"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "asset-server/ParseForm_3pit7",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "Asset-Server/Route_wh3nb",
+                "port": "in2"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "Asset-Server/Route_wh3nb",
+                "port": "out2"
+            },
+            "tgt": {
+                "process": "express/SendError_l8ecq",
+                "port": "in"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "asset-server/ParseForm_3pit7",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "express/SendError_l8ecq",
+                "port": "error"
+            },
+            "metadata": {
+                "route": 1
+            }
+        },
+        {
+            "src": {
+                "process": "express/Request_y95tx",
+                "port": "request"
+            },
+            "tgt": {
+                "process": "Asset-Server/Route_wh3nb",
+                "port": "data"
+            },
+            "metadata": {
+                "route": 0
+            }
+        },
+        {
+            "src": {
+                "process": "asset-server/OrderPackets_fplsh",
+                "port": "out2"
+            },
+            "tgt": {
+                "process": "express/ReceiveFiles_rezcm",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "Asset-Server/Route_wh3nb",
+                "port": "out1"
+            },
+            "tgt": {
+                "process": "asset-server/OrderPackets_fplsh",
+                "port": "in"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "asset-server/OrderPackets_fplsh",
+                "port": "out1"
+            },
+            "tgt": {
+                "process": "flow/Gate_2oda4",
+                "port": "open"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "flow/Gate_2oda4",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "StoreFile",
+                "port": "file"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "StoreFile",
+                "port": "usererror"
+            },
+            "tgt": {
+                "process": "flow/Gate_2oda4",
+                "port": "close"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "StoreFile",
+                "port": "done"
+            },
+            "tgt": {
+                "process": "cache/Cache_k390a",
+                "port": "ready"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "express/ReceiveFiles_rezcm",
+                "port": "file"
+            },
+            "tgt": {
+                "process": "cache/Cache_k390a",
+                "port": "in"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "StoreFile",
+                "port": "servererror"
+            },
+            "tgt": {
+                "process": "cache/Cache_k390a",
+                "port": "ready"
+            },
+            "metadata": {}
+        },
+        {
+            "data": "get",
+            "tgt": {
+                "process": "express/Request_3octh",
+                "port": "method"
+            }
+        },
+        {
+            "data": "fuck",
+            "tgt": {
+                "process": "core/Kick_i5kfo",
+                "port": "data"
+            }
+        },
+        {
+            "data": "get",
+            "tgt": {
+                "process": "express/Request_y0zrz",
+                "port": "method"
+            }
+        },
+        {
+            "data": "3333",
+            "tgt": {
+                "process": "core/Repeat_ffpti",
+                "port": "in"
+            }
+        },
+        {
+            "data": "true",
+            "tgt": {
+                "process": "core/Kick_zjq4f",
+                "port": "data"
+            }
+        },
+        {
+            "data": 500,
+            "tgt": {
+                "process": "core/RunTimeout_fue8b",
+                "port": "time"
+            }
+        },
+        {
+            "data": "post",
+            "tgt": {
+                "process": "express/Request_y95tx",
+                "port": "method"
+            }
+        },
+        {
+            "data": "^/upload$",
+            "tgt": {
+                "process": "express/Request_y95tx",
+                "port": "path"
+            }
+        },
+        {
+            "data": "/plop.html",
+            "tgt": {
+                "process": "express/Request_3octh",
+                "port": "path"
+            }
+        },
+        {
+            "data": "file",
+            "tgt": {
+                "process": "express/RequestParam_95i2y",
+                "port": "parameter"
+            }
+        },
+        {
+            "data": "/tmp",
+            "tgt": {
+                "process": "asset-server/BuildFilePath_gt5e",
+                "port": "path"
+            }
+        },
+        {
+            "data": "{}",
+            "tgt": {
+                "process": "strings/ParseJson_25d4z",
+                "port": "in"
+            }
+        },
+        {
+            "data": "Files",
+            "tgt": {
+                "process": "mongoose/CreateModel_cd4e6",
+                "port": "name"
+            }
+        },
+        {
+            "data": "{ \"id\": \"greplger\", \"addedDate\": \"Tue Apr 15 2014 16:52:33 GMT+0100 (BST)\", \"updatedDate\": \"Tue Apr 15 2014 16:52:33 GMT+0100 (BST)\", \"filename\": \"/plop\", \"tags\": [] }",
+            "tgt": {
+                "process": "strings/ParseJson_2oa7w",
+                "port": "in"
+            }
+        },
+        {
+            "data": "mongodb://localhost/database",
+            "tgt": {
+                "process": "mongoose/Connection_khm8i",
+                "port": "connect"
+            }
+        },
+        {
+            "data": "/files/:file",
+            "tgt": {
+                "process": "express/Request_y0zrz",
+                "port": "path"
+            }
+        }
+    ]
+}
