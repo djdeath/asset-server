@@ -1,0 +1,93 @@
+{
+    "properties": {
+        "name": "NewFilePath",
+        "id": "NewFilePath",
+        "project": "Asset-Server",
+        "environment": {
+            "type": "noflo-nodejs"
+        }
+    },
+    "inports": {
+        "path": {
+            "process": "asset-server/BuildFilePath_ke047",
+            "port": "path",
+            "metadata": {
+                "x": 1044,
+                "y": 1368
+            }
+        },
+        "in": {
+            "process": "swiss/RandomUuid_wiuxf",
+            "port": "in",
+            "metadata": {
+                "x": 1044,
+                "y": 1476
+            }
+        }
+    },
+    "outports": {
+        "out": {
+            "process": "asset-server/BuildFilePath_ke047",
+            "port": "out",
+            "metadata": {
+                "x": 1584,
+                "y": 1476
+            }
+        }
+    },
+    "groups": [],
+    "processes": {
+        "swiss/RandomUuid_wiuxf": {
+            "component": "swiss/RandomUuid",
+            "metadata": {
+                "label": "Uuid",
+                "x": 1224,
+                "y": 1476
+            }
+        },
+        "asset-server/UuidToPath_6aiox": {
+            "component": "asset-server/UuidToPath",
+            "metadata": {
+                "label": "UuidToPath",
+                "x": 1332,
+                "y": 1476
+            }
+        },
+        "asset-server/BuildFilePath_ke047": {
+            "component": "asset-server/BuildFilePath",
+            "metadata": {
+                "label": "FilePath",
+                "x": 1440,
+                "y": 1476
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "swiss/RandomUuid_wiuxf",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "asset-server/UuidToPath_6aiox",
+                "port": "in"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "asset-server/UuidToPath_6aiox",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "asset-server/BuildFilePath_ke047",
+                "port": "filename"
+            },
+            "metadata": {
+                "route": null
+            }
+        }
+    ]
+}
