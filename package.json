@@ -1,60 +1,64 @@
 {
   "name": "asset-server",
   "description": "Asset server",
-  "keywords": ["noflo", "server"],
+  "keywords": [
+    "noflo",
+    "server"
+  ],
   "author": "Lionel Landwerlin <lionel.g.landwerlin@linux.intel.com>",
   "version": "0.0.1",
-  "licenses": [{
-    "type": "MIT",
-    "url": "https://github.com/djdeath/asset-server/raw/master/LICENSE"
-  }],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/djdeath/asset-server/raw/master/LICENSE"
+    }
+  ],
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/djdeath/asset-server.git"
+    "type": "git",
+    "url": "https://github.com/djdeath/asset-server.git"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "dependencies": {
     "coffee-script": "1.4.x",
-    "noflo": "git://github.com/noflo/noflo.git#master",
-    "noflo-runtime-websocket": "0.2.x",
-    "noflo-adapters": "git://github.com/noflo/noflo-adapters.git#master",
-    "noflo-core": "git://github.com/noflo/noflo-core.git#master",
-    "noflo-express": "git://github.com/djdeath/noflo-express.git#master",
-    "noflo-filesystem": "git://github.com/noflo/noflo-filesystem.git#master",
-    "noflo-flow": "git://github.com/noflo/noflo-flow.git#master",
-    "noflo-groups": "git://github.com/noflo/noflo-groups.git#master",
-    "noflo-markdown": "0.0.*",
-    "noflo-math": "git://github.com/djdeath/noflo-math.git#iot",
-    "noflo-mongoose": "git://github.com/djdeath/noflo-mongoose.git#master",
-    "noflo-objects": "0.1.*",
-    "noflo-packets": "0.1.*",
-    "noflo-routers": "0.2.*",
-    "noflo-swiss": "0.0.*",
-    "noflo-strings": "git://github.com/noflo/noflo-strings.git#master",
-    "noflo-webserver": "0.0.*",
-    "noflo-websocket": "0.1.*",
-    "noflo-xml": "0.0.*",
-
     "formidable": "1.0.14",
-    "mongoose": "~3.8.8"
+    "mongoose": "~3.8.8",
+    "express": "~4.1.0"
   },
   "devDependencies": {
-    "nodeunit": ">=0.6.0"
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.13",
+    "grunt-component": "~0.1.8",
+    "grunt-component-build": "~0.4.3",
+    "component-json": "git://github.com/CamShaft/component-json.git",
+    "component-coffee": "git://github.com/anthonyshort/component-coffee.git",
+    "component-fbp": "^0.1.0",
+    "grunt-combine": "~0.8.3",
+    "grunt-contrib-concat": "~0.3.0",
+    "component-require": "git://github.com/djdeath/require.git#node-optimization",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-noflo-manifest": "^0.1.2"
   },
-   "noflo": {
+  "noflo": {
     "components": {
       "BuildFilePath": "components/BuildFilePath.coffee",
       "File": "components/File.coffee",
       "FileSchema": "components/FileSchema.coffee",
-      "ParseForm": "components/ParseForm.coffee",
       "OrderPackets": "components/OrderPackets.coffee",
+      "ParseForm": "components/ParseForm.coffee",
       "TagSchema": "components/TagSchema.coffee",
       "UuidToPath": "components/UuidToPath.coffee"
+    },
+    "graphs": {
+      "NewFilePath": "graphs/NewFilePath.json",
+      "Route": "graphs/Route.json",
+      "StoreFile": "graphs/StoreFile.json",
+      "m2scv": "graphs/m2scv.json"
     }
   },
- "scripts": {
+  "scripts": {
     "pretest": "./node_modules/.bin/coffeelint -r components",
     "test": "./node_modules/.bin/nodeunit test"
   }

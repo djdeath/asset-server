@@ -1,0 +1,56 @@
+{
+  "name": "asset-server",
+  "description": "Asset Server components",
+  "author": {
+    "name": "Lionel Landwerlin",
+    "email": "lionel.g.landwerlin@linux.intel.com"
+  },
+  "repository": "djdeath/asset-server",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "noflo/noflo": "*",
+    "noflo/noflo-core": "*",
+    "noflo/noflo-strings": "*",
+    "noflo/noflo-packets": "*",
+    "noflo/noflo-objects": "*",
+    "noflo/noflo-routers": "*",
+    "noflo/noflo-groups": "*",
+    "noflo/noflo-flow": "*",
+    "noflo/fbp": "*",
+    "kenhkan/noflo-swiss": "*",
+    "djdeath/noflo-express": "*",
+    "djdeath/noflo-mongoose": "*",
+    "djdeath/noflo-xml": "*",
+    "djdeath/noflo-filesystem": "*",
+    "djdeath/noflo-math": "*",
+    "djdeath/noflo-runtime-websocket": "*"
+  },
+  "scripts": [
+    "index.js",
+    "components/BuildFilePath.coffee",
+    "components/File.coffee",
+    "components/FileSchema.coffee",
+    "components/ParseForm.coffee",
+    "components/OrderPackets.coffee",
+    "components/TagSchema.coffee",
+    "components/UuidToPath.coffee"
+  ],
+  "json": [
+    "component.json"
+  ],
+  "noflo": {
+    "components": {
+      "BuildFilePath": "components/BuildFilePath.coffee",
+      "File": "components/File.coffee",
+      "FileSchema": "components/FileSchema.coffee",
+      "OrderPackets": "components/OrderPackets.coffee",
+      "ParseForm": "components/ParseForm.coffee",
+      "TagSchema": "components/TagSchema.coffee",
+      "UuidToPath": "components/UuidToPath.coffee"
+    }
+  },
+  "remotes": [
+    "https://raw.githubusercontent.com"
+  ]
+}

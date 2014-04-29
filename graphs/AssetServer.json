@@ -113,7 +113,7 @@
             "component": "core/Repeat",
             "metadata": {
                 "label": "Server Port",
-                "x": -36,
+                "x": -108,
                 "y": 180
             }
         },
@@ -387,14 +387,6 @@
                 "label": "StoreFile",
                 "x": 1728,
                 "y": 1944
-            }
-        },
-        "cache/Cache_k390a": {
-            "component": "cache/Cache",
-            "metadata": {
-                "label": "cache/Cache",
-                "x": 1908,
-                "y": 1800
             }
         }
     },
@@ -1116,43 +1108,6 @@
             "tgt": {
                 "process": "flow/Gate_2oda4",
                 "port": "close"
-            },
-            "metadata": {}
-        },
-        {
-            "src": {
-                "process": "StoreFile",
-                "port": "done"
-            },
-            "tgt": {
-                "process": "cache/Cache_k390a",
-                "port": "ready"
-            },
-            "metadata": {
-                "route": null
-            }
-        },
-        {
-            "src": {
-                "process": "express/ReceiveFiles_rezcm",
-                "port": "file"
-            },
-            "tgt": {
-                "process": "cache/Cache_k390a",
-                "port": "in"
-            },
-            "metadata": {
-                "route": null
-            }
-        },
-        {
-            "src": {
-                "process": "StoreFile",
-                "port": "servererror"
-            },
-            "tgt": {
-                "process": "cache/Cache_k390a",
-                "port": "ready"
             },
             "metadata": {}
         },
