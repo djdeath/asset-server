@@ -21,21 +21,26 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
+    "btoa": "^1.1.1",
     "coffee-script": "1.4.x",
+    "express": "~4.1.0",
     "formidable": "1.0.14",
+    "fs.extra": "1.2.x",
+    "mimetype": "0.0.5",
     "mongoose": "~3.8.8",
-    "express": "~4.1.0"
+    "websocket": "~1.0.8"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-cli": "~0.1.13",
+    "grunt-combine": "~0.8.3",
     "grunt-component": "~0.1.8",
     "grunt-component-build": "~0.4.3",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-exec": "~0.4.2",
     "component-json": "git://github.com/CamShaft/component-json.git",
     "component-coffee": "git://github.com/anthonyshort/component-coffee.git",
     "component-fbp": "^0.1.0",
-    "grunt-combine": "~0.8.3",
-    "grunt-contrib-concat": "~0.3.0",
     "component-require": "git://github.com/djdeath/require.git#node-optimization",
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-clean": "~0.5.0",
@@ -52,10 +57,10 @@
       "UuidToPath": "components/UuidToPath.coffee"
     },
     "graphs": {
+      "m2scv": "graphs/AssetServer.json",
       "NewFilePath": "graphs/NewFilePath.json",
       "Route": "graphs/Route.json",
-      "StoreFile": "graphs/StoreFile.json",
-      "m2scv": "graphs/m2scv.json"
+      "StoreFile": "graphs/StoreFile.json"
     }
   },
   "scripts": {

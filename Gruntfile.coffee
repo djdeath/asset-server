@@ -62,7 +62,7 @@ module.exports = ->
         dest: 'build/asset-server.js'
       'asset-server-bin':
         src: ['header.js', 'build/asset-server.js', 'aliases.js', 'server.js']
-        dest: 'build/asset-server-bin.js'
+        dest: 'build/asset-server-bin'
 
     # JavaScript minification (Because it's FAST!!!)
     uglify:
@@ -72,6 +72,11 @@ module.exports = ->
         files:
           './build/asset-server.min.js': ['./build/asset-server.js']
 
+    # Exec
+    exec:
+      'asset-server-bin':
+        command: 'chmod +x build/asset-server-bin'
+
   # Grunt plugins used for building
   @loadNpmTasks 'grunt-noflo-manifest'
   @loadNpmTasks 'grunt-component'
@@ -80,10 +85,11 @@ module.exports = ->
   @loadNpmTasks 'grunt-contrib-concat'
   @loadNpmTasks 'grunt-contrib-uglify'
   @loadNpmTasks 'grunt-contrib-clean'
+  @loadNpmTasks 'grunt-exec'
 
   # Our local tasks
   @registerTask 'build-components', ['noflo_manifest', 'component:asset-server', 'componentbuild:asset-server', 'combine:asset-server', 'concat:asset-server', 'uglify:asset-server']
-  @registerTask 'build', ['build-components', 'concat:asset-server-bin']
+  @registerTask 'build', ['build-components', 'concat:asset-server-bin', 'exec:asset-server-bin']
 
   @registerTask 'nuke', ['clean:asset-server-components', 'clean:asset-server']
 
